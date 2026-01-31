@@ -1,0 +1,74 @@
+/** @format */
+
+body {
+  background-color: #eeeeee;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  background-color: white;
+  width: 320px;
+  padding: 20px;
+  margin: 100px auto;
+  text-align: left;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+button {
+  padding: 7px 14px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+}
+
+#showPass {
+  background-color: #6c757d;
+  color: white;
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  width: 100%;
+}
+
+#msg {
+  display: none;
+  padding: 8px;
+  margin-bottom: 10px;
+  color: white;
+  border-radius: 3px;
+}
+
+.error {
+  background-color: #dc3545;
+}
+
+.success {
+  background-color: #28a745;
+}
