@@ -55,9 +55,8 @@ button {
 }
 
 #msg {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   padding: 8px;
-  display: none;
   font-size: 14px;
 }
 
