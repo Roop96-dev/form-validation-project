@@ -6,7 +6,7 @@ This project validates user input on the client side and provides instant feedba
 ---
 
 ## 🚀 Live Demo
-👉 https://YOUR-NETLIFY-LINK.netlify.app
+👉 dancing-pixie-f1c512.netlify.app
 
 ---
 
