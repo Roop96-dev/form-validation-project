@@ -16,7 +16,8 @@ $(document).ready(function () {
     return pattern.test(email);
   }
 
-  $("#submitbutton").click(function () {
+  $("#myForm").submit(function (e) {
+    e.preventDefault();
     var error = "";
 
     if ($("#name").val() == "") {
@@ -68,3 +69,4 @@ $(document).ready(function () {
     }
   });
 });
+
