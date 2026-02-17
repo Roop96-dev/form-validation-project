@@ -17,56 +17,53 @@ $(document).ready(function () {
   }
 
   $("#myForm").submit(function (e) {
-    e.preventDefault();
     var error = "";
 
-    if ($("#name").val() == "") {
+    var name = $("#name").val().trim();
+    var email = $("#email").val().trim();
+    var phone = $("#phone").val().trim();
+    var password = $("#password").val();
+    var confirmpassword = $("#confirmpassword").val();
+
+    if (name == "") {
       error += "<p>Name field is required</p>";
     }
 
-    if ($("#email").val() == "") {
+    if (email == "") {
       error += "<p>Email field is required</p>";
-    } else {
-      if (!isValidEmail($("#email").val())) {
-        error += "<p>Email format is not correct</p>";
-      }
+    } else if (!isValidEmail(email)) {
+      error += "<p>Email format is not correct</p>";
     }
 
-    if ($("#phone").val() == "") {
+    var phonePattern = /^[0-9]{10}$/;
+
+    if (phone == "") {
       error += "<p>Phone field is required</p>";
-    } else {
-      if (isNaN($("#phone").val())) {
-        error += "<p>Phone must contain numbers only</p>";
-      }
-
-      if ($("#phone").val().length != 10) {
-        error += "<p>Phone must be 10 digits</p>";
-      }
+    } else if (!phonePattern.test(phone)) {
+      error += "<p>Phone must be exactly 10 digits</p>";
     }
 
-    if ($("#password").val() == "") {
+    if (password == "") {
       error += "<p>Password field is required</p>";
-    } else {
-      if ($("#password").val().length < 8) {
-        error += "<p>Password must be at least 8 characters</p>";
-      }
+    } else if (password.length < 8) {
+      error += "<p>Password must be at least 8 characters</p>";
     }
 
-    if ($("#confirmpassword").val() == "") {
+    if (confirmpassword == "") {
       error += "<p>Confirm Password field is required</p>";
-    } else {
-      if ($("#password").val() != $("#confirmpassword").val()) {
-        error += "<p>Passwords do not match</p>";
-      }
+    } else if (password !== confirmpassword) {
+      error += "<p>Passwords do not match</p>";
     }
 
-    if (error == "") {
-      $("#msg").html("Form submitted successfully");
-      $("#msg").attr("class", "success");
-    } else {
+    if (error !== "") {
+      e.preventDefault();
       $("#msg").html(error);
-      $("#msg").attr("class", "error");
+      $("#msg").removeClass("success").addClass("error");
+    } else {
+      $("#msg").html("Form submitted successfully");
+      $("#msg").removeClass("error").addClass("success");
+
+      this.reset();
     }
   });
 });
-
